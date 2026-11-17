@@ -5,4 +5,4 @@ def nazim():
     print("I am working on our collaborative project.")
     print("My focus is AI, Python, and backend development.")
 
-nazim()
+nazim k()
