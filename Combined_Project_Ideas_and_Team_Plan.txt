@@ -1,0 +1,473 @@
+Combined Project — Team Project Selection Document
+
+Team: Nazim Hussain & Zahid Ahmed
+Repository: Combined-Project
+Status: Idea selection — no project has been selected yet
+Purpose: Review the proposed ideas together, choose one, and then create
+the project specification and GitHub development workflow.
+
+------------------------------------------------------------------------
+
+1. Why we are creating this document
+
+We want to build one meaningful software project together while learning
+professional Git and GitHub collaboration.
+
+The project should:
+
+-   Solve a real problem for identifiable users.
+-   Demonstrate practical AI/software engineering skills.
+-   Be realistic for a two-person team to build as an MVP.
+-   Give both developers clear ownership of different areas.
+-   Be suitable for a portfolio demonstration and, where possible,
+    future commercialization.
+
+Important: The ideas below are proposals, not claims that demand or
+revenue is guaranteed. We should validate the problem with potential
+users before committing to a large build.
+
+------------------------------------------------------------------------
+
+2. Project ideas
+
+Idea 1 — AI Business Operations Assistant
+
+Concept:
+An AI assistant for small businesses that helps process everyday
+business information and repetitive tasks. Users could upload invoices,
+PDFs, forms, and other documents; the system extracts key information,
+answers questions, tracks follow-up tasks, and can trigger approved
+automations.
+
+Problem it addresses:
+Small teams often handle information across emails, documents,
+spreadsheets, and messaging apps. Important details and follow-ups can
+be missed, and repetitive administrative work takes time.
+
+Potential users: - Small and medium-sized businesses - Agencies and
+service providers - Contractors and operations teams
+
+Possible MVP features: 1. User login and business workspace. 2. Upload
+PDF and document files. 3. Extract key fields and summarize documents.
+4. Ask questions about uploaded business documents using RAG. 5. Create
+tasks and reminders from extracted information. 6. Human approval before
+external actions are performed. 7. Activity history and basic audit log.
+
+Possible technology stack: - Python and FastAPI - React - PostgreSQL -
+LLM API - RAG / embeddings / vector search - n8n for selected
+automations
+
+Main challenge:
+Keeping extracted information accurate, protecting business data, and
+making sure the system does not perform consequential actions without
+approval.
+
+------------------------------------------------------------------------
+
+Idea 2 — AI Tender & RFP Analyzer
+
+Concept:
+A tool that reads tender documents and Requests for Proposals (RFPs),
+then organizes important requirements into a clear checklist.
+
+Problem it addresses:
+Tender packages can be long and complicated. Contractors and businesses
+need to identify eligibility rules, submission deadlines, technical
+requirements, financial conditions, and required documents.
+
+Potential users: - Construction companies - Contractors and
+subcontractors - Procurement and bidding teams - Consultants
+
+Possible MVP features: 1. Upload tender/RFP PDFs. 2. Extract text,
+tables, and relevant document sections. 3. Identify deadlines and
+submission instructions. 4. Extract eligibility and qualification
+requirements. 5. Generate a required-document checklist. 6. Provide
+answers with page references or source citations. 7. Export a tender
+summary and checklist.
+
+Possible technology stack: - Python and FastAPI - PDF parsing and OCR -
+RAG and hybrid retrieval - LLM API - React - PostgreSQL
+
+Main challenge:
+Tender documents vary greatly in layout. The system must cite the source
+and clearly flag uncertain or missing information rather than inventing
+requirements.
+
+------------------------------------------------------------------------
+
+Idea 3 — Self-Healing AI Agent Platform
+
+Concept:
+A platform for building AI agents that execute defined tasks, monitor
+their own operations, detect failures, retry safely, and escalate
+unresolved issues to a human.
+
+Problem it addresses:
+Automations and agents can fail because of invalid inputs, unavailable
+services, API errors, or unexpected outputs. Users need visibility and
+controlled recovery rather than silent failure.
+
+Potential users: - Developers - Automation agencies - Startups - Teams
+operating AI workflows
+
+Possible MVP features: 1. Create a task or agent workflow. 2. Execute a
+small set of approved tools. 3. Log each step and its result. 4. Detect
+errors and classify failure types. 5. Retry only when safe and within
+defined limits. 6. Escalate unresolved failures to a human. 7. Show
+execution history and success/failure metrics.
+
+Possible technology stack: - Python and FastAPI - LangGraph or a
+comparable orchestration framework - PostgreSQL - React dashboard - n8n
+integrations where useful - LLM API
+
+Main challenge:
+Retries can cause duplicate actions. The platform needs permission
+controls, retry limits, idempotency where possible, and clear human
+approval points.
+
+------------------------------------------------------------------------
+
+Idea 4 — Private AI Knowledge Management System
+
+Concept:
+A private knowledge assistant that lets a team connect or upload its
+documents and ask questions with answers grounded in the team’s own
+sources.
+
+Problem it addresses:
+Useful information is scattered across PDFs, documents, policies,
+manuals, and internal notes. Finding the correct information takes time.
+
+Potential users: - Universities and research groups - Companies and
+internal teams - Legal and consulting firms - Training organizations
+
+Possible MVP features: 1. Create a workspace. 2. Upload PDFs and text
+documents. 3. Process and index documents. 4. Search using keyword and
+semantic retrieval. 5. Ask questions and receive cited answers. 6. Open
+the source passage used for an answer. 7. Manage documents and remove
+outdated sources.
+
+Possible technology stack: - Python and FastAPI - RAG, embeddings,
+hybrid search - PostgreSQL with vector search - React - LLM API
+
+Main challenge:
+Source accuracy, document permissions, and preventing information from
+one workspace from appearing in another.
+
+------------------------------------------------------------------------
+
+Idea 5 — AI Customer Support Automation
+
+Concept:
+An AI support assistant that answers customer questions using a
+business’s approved information, categorizes incoming issues, and routes
+complicated cases to a human.
+
+Problem it addresses:
+Support teams repeatedly answer similar questions and need a reliable
+way to organize and prioritize customer requests.
+
+Potential users: - E-commerce stores - Service businesses - SaaS
+companies - Online businesses
+
+Possible MVP features: 1. Business knowledge-base setup. 2. Customer
+question interface. 3. RAG-based answers with source grounding. 4.
+Ticket categorization and priority suggestions. 5. Conversation history.
+6. Human handoff for uncertain or sensitive cases. 7. Basic support
+analytics.
+
+Possible technology stack: - Python and FastAPI - React - PostgreSQL -
+RAG and LLM API - n8n - Messaging or helpdesk integrations in a later
+phase
+
+Main challenge:
+Avoiding incorrect answers, protecting customer information, and
+ensuring a human can take over when necessary.
+
+------------------------------------------------------------------------
+
+Idea 6 — AI GitHub Code Review Assistant
+
+Concept:
+A GitHub-integrated assistant that reviews pull requests, explains
+changes, flags potential bugs, and suggests useful tests.
+
+Problem it addresses:
+Developers and small teams need help reviewing code changes
+consistently. AI suggestions can speed up review, but should not replace
+human approval.
+
+Potential users: - Software developers - Small engineering teams -
+Startups - Open-source maintainers
+
+Possible MVP features: 1. Connect a GitHub repository through approved
+permissions. 2. Receive pull-request events through a webhook. 3. Read
+changed files and diff content. 4. Identify possible bugs, risky
+changes, and missing tests. 5. Post a structured review summary. 6. Link
+each finding to the relevant changed lines where possible. 7. Let a
+human accept, dismiss, or discuss findings.
+
+Possible technology stack: - Python and FastAPI - GitHub App / GitHub
+API - LLM API - Static analysis and test tools - PostgreSQL - React
+dashboard (optional for MVP)
+
+Main challenge:
+Keeping reviews relevant, minimizing false positives, respecting
+repository permissions, and never exposing secrets from source code or
+logs.
+
+------------------------------------------------------------------------
+
+3. High-level comparison
+
+These are initial team estimates to help us discuss scope. They are not
+market research or guarantees.
+
+  -----------------------------------------------------------------------
+  Project           Technical depth   MVP difficulty    Potential use
+  ----------------- ----------------- ----------------- -----------------
+  AI Business       High              Medium–High       Business
+  Operations                                            administration
+  Assistant                                             
+
+  AI Tender & RFP   High              Medium            Procurement and
+  Analyzer                                              bidding
+
+  Self-Healing AI   Very high         High              AI and workflow
+  Agent Platform                                        operations
+
+  Private AI        High              Medium            Internal
+  Knowledge                                             knowledge search
+  Management                                            
+
+  AI Customer       High              Medium            Customer service
+  Support                                               
+  Automation                                            
+
+  AI GitHub Code    Very high         High              Software
+  Review Assistant                                      engineering
+  -----------------------------------------------------------------------
+
+How to choose
+
+Score each idea together from 1 to 5 on:
+
+-   Problem clarity: Can we explain the problem simply?
+-   User access: Can we speak to 3–5 people who might use it?
+-   MVP feasibility: Can two developers build a useful first version?
+-   Technical learning: Will it teach us valuable skills?
+-   Differentiation: Can we offer something meaningfully better or more
+    focused?
+-   Portfolio value: Can we demonstrate it clearly?
+
+Do not choose only because an idea sounds impressive. Prefer the idea
+where we can reach real users and test whether the solution is useful.
+
+------------------------------------------------------------------------
+
+4. Suggested division of responsibilities
+
+The roles below are a starting point. Both developers should review each
+other’s work and contribute to testing and design decisions.
+
+Nazim — AI and Backend Lead
+
+Potential responsibilities: - Backend architecture and API development -
+LLM integration - RAG, retrieval, and evaluation - Agent logic and tool
+integrations - Database design with the other developer - Backend tests
+and technical documentation
+
+Zahid — Frontend and Product Integration Lead
+
+Potential responsibilities: - Frontend architecture and UI - Dashboard
+and user experience - Authentication interface and integration - File
+upload and results views - Frontend-to-backend integration - Frontend
+tests and product documentation
+
+Shared responsibilities
+
+-   Requirements and feature prioritization
+-   Database and API contract decisions
+-   Security and privacy review
+-   Code reviews and pull requests
+-   Integration testing and debugging
+-   Deployment and demo preparation
+
+The split should remain flexible. Each developer should understand the
+full system, not only their assigned folder.
+
+------------------------------------------------------------------------
+
+5. Proposed six-week MVP roadmap
+
+This schedule is a planning target. We should adjust it after selecting
+an idea and estimating the work.
+
+Week 1 — Decide and design
+
+-   Select one idea.
+-   Identify the target user and specific problem.
+-   Interview or speak with potential users.
+-   Define the MVP and explicitly exclude extra features.
+-   Agree on architecture, stack, and API contracts.
+-   Set up the GitHub repository and task board.
+
+Week 2 — Build the foundation
+
+-   Create backend and frontend project structure.
+-   Configure database and environment variables.
+-   Implement the first API endpoints.
+-   Build the first usable frontend screens.
+-   Add basic tests and documentation.
+
+Week 3 — Implement the core feature
+
+-   Build the main workflow for the selected product.
+-   Integrate AI or document processing if required.
+-   Add loading, error, and empty states.
+-   Test with sample data.
+
+Week 4 — Integrate
+
+-   Connect frontend and backend.
+-   Test complete user journeys.
+-   Fix integration issues.
+-   Add authentication and permissions where required for the MVP.
+
+Week 5 — Improve reliability
+
+-   Test edge cases and failure scenarios.
+-   Evaluate AI output quality where relevant.
+-   Improve logging and error handling.
+-   Review privacy and security.
+-   Fix high-priority defects.
+
+Week 6 — Release a demonstrable MVP
+
+-   Deploy the application.
+-   Write setup and usage documentation.
+-   Prepare sample data and a demo.
+-   Record a short walkthrough.
+-   Collect feedback from initial users.
+-   Decide what to improve next.
+
+------------------------------------------------------------------------
+
+6. Proposed GitHub collaboration workflow
+
+We should use branches and pull requests instead of both editing and
+pushing directly to main.
+
+Suggested branches
+
+-   main — stable version suitable for release.
+-   dev — shared integration branch.
+-   feature/<name> — a feature being developed.
+-   fix/<name> — a bug fix.
+
+Example branches: - feature/nazim-rag-pipeline -
+feature/zahid-dashboard - fix/document-upload
+
+Working rules
+
+1.  Do not work directly on main.
+2.  Create a feature branch from the latest dev.
+3.  Keep commits small and use clear commit messages.
+4.  Push your feature branch to GitHub.
+5.  Open a pull request targeting dev.
+6.  The other developer reviews the changes.
+7.  Run relevant tests before merging.
+8.  Merge only after review and successful checks.
+9.  Pull the latest dev before starting another task.
+10. Never commit .env, API keys, passwords, private data, or generated
+    secrets.
+
+Example workflow
+
+    # Update your local development branch
+    git checkout dev
+    git pull origin dev
+
+    # Create a feature branch
+    git checkout -b feature/your-feature-name
+
+    # Make changes, then commit
+    git add .
+    git commit -m "Add document upload endpoint"
+
+    # Push your branch
+    git push -u origin feature/your-feature-name
+
+Then open a GitHub Pull Request from your feature branch into dev.
+
+------------------------------------------------------------------------
+
+7. Initial repository structure
+
+The exact structure will depend on the selected project. A possible
+starting point is:
+
+    Combined-Project/
+    │
+    ├── backend/
+    │   ├── app/
+    │   ├── tests/
+    │   └── requirements.txt
+    │
+    ├── frontend/
+    │   ├── src/
+    │   └── package.json
+    │
+    ├── docs/
+    │   ├── PROJECT_PLAN.md
+    │   └── ARCHITECTURE.md
+    │
+    ├── .env.example
+    ├── .gitignore
+    └── README.md
+
+We should not create every folder before we know the selected project’s
+requirements. Keep the first version simple.
+
+------------------------------------------------------------------------
+
+8. Before we commit: team decision
+
+Nazim and Zahid should review the six ideas together.
+
+For each idea, discuss: 1. Do we understand the problem? 2. Can we reach
+potential users? 3. What is the smallest useful version we can build? 4.
+What data, APIs, or services will we need? 5. What will each person own?
+6. How will we test whether the MVP actually helps?
+
+Final selection
+
+Selected project: To be decided together.
+
+Primary target users: To be identified.
+
+MVP problem statement: To be written after user validation.
+
+Initial technology stack: To be finalized after project selection.
+
+Target start date: To be decided.
+
+First milestone: A working, testable core feature.
+
+------------------------------------------------------------------------
+
+9. Next steps after selection
+
+Once both developers agree on one idea:
+
+1.  Record the selected idea and target users.
+2.  Write the final README.md.
+3.  Create a detailed PROJECT_PLAN.md.
+4.  Agree on the initial architecture and folder structure.
+5.  Create and protect the main and dev branches.
+6.  Create the first feature branches.
+7.  Assign the first issues to Nazim and Zahid.
+8.  Start implementation and use pull requests for collaboration.
+
+Our principle: Build a small, reliable product that solves a real
+problem before adding advanced features.
