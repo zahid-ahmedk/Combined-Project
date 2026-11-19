@@ -1,0 +1,203 @@
+==========================================================================
+COMBINED PROJECT - AI CUSTOMER SUPPORT AUTOMATION
+Project Plan, Stack, Workflow, Shared Tasks and Deadlines
+==========================================================================
+Team:        Nazim Hussain (AI & Backend Lead) and Zahid Ahmed (Frontend & Product Integration Lead)
+Repository:  Combined-Project
+Selected:    Idea 5 - AI Customer Support Automation
+Written:     19 November 2026
+Status:      Draft for Nazim to read and approve, then we create the project
+
+--------------------------------------------------------------------------
+1. WHAT WE ARE BUILDING
+--------------------------------------------------------------------------
+An AI support assistant that:
+  - answers customer questions using ONLY the business's approved information
+  - sorts incoming issues into categories and suggests a priority
+  - hands complicated or sensitive cases over to a human
+  - shows the business simple numbers about its support (analytics)
+
+Problem it solves:
+Support teams keep answering the same questions again and again and need a
+reliable way to organize and prioritize customer requests.
+
+Who it is for (target users):
+  - E-commerce stores
+  - Service businesses
+  - SaaS companies
+  - Online businesses
+
+IMPORTANT: Before building too much, we speak to 3-5 real small business
+owners and check that this problem is real for them. Nothing here is a
+guarantee of demand or revenue.
+
+--------------------------------------------------------------------------
+2. MVP FEATURES (first version only)
+--------------------------------------------------------------------------
+ 1. Business knowledge-base setup (business adds FAQs, policies, documents)
+ 2. Customer question interface (chat screen)
+ 3. RAG-based answers grounded in the business's own information, with source shown
+ 4. Ticket categorization and priority suggestions
+ 5. Conversation history
+ 6. Human handoff when the AI is unsure or the topic is sensitive
+ 7. Basic support analytics (number of chats, handoffs, categories)
+
+NOT in the MVP (later phase): WhatsApp / email / helpdesk integrations,
+payments, multi-language, mobile app.
+
+--------------------------------------------------------------------------
+3. TECHNOLOGY STACK
+--------------------------------------------------------------------------
+  Backend:     Python + FastAPI
+  Frontend:    React
+  Database:    PostgreSQL (with vector search for embeddings)
+  AI:          LLM API + RAG (embeddings, retrieval)
+  Automation:  n8n (for selected automations, e.g. notifications)
+  Later phase: Messaging / helpdesk integrations
+  Tools:       Git + GitHub, Visual Studio Code
+
+Main challenges we must handle:
+  - Avoid wrong answers (AI must say "I'm not sure" and hand off instead of guessing)
+  - Protect customer information
+  - Make sure a human can take over at any time
+  - Keep one business's data completely separate from another's
+
+--------------------------------------------------------------------------
+4. WHO OWNS WHAT
+--------------------------------------------------------------------------
+NAZIM - AI and Backend Lead
+  - Backend architecture and API
+  - LLM integration
+  - RAG pipeline, retrieval and answer-quality testing
+  - Ticket categorization and priority logic
+  - Human-handoff rules (when the AI must stop and escalate)
+  - Database design (together with Zahid)
+  - Backend tests and technical documentation
+
+ZAHID - Frontend and Product Integration Lead
+  - Frontend structure and UI (React)
+  - Login / signup screens and connection to the backend
+  - Knowledge-base setup screens (upload and manage documents)
+  - Customer chat interface
+  - Support dashboard, conversation history and analytics screens
+  - Frontend-to-backend integration
+  - Frontend tests and product documentation
+
+SHARED (both of us)
+  - Choosing and writing down the exact MVP scope
+  - Database and API contract decisions
+  - Security and privacy review
+  - Code reviews and pull requests (we review each other's work)
+  - Integration testing and bug fixing
+  - Deployment, demo and walkthrough video
+
+Both of us should understand the whole system, not only our own folder.
+
+--------------------------------------------------------------------------
+5. SHARED TASK LIST WITH DEADLINES
+--------------------------------------------------------------------------
+Planning start: Friday 20 November 2026
+Weekly sync:    one short call/chat per week (suggested Sunday evening)
+
+PREP (20 - 22 Nov)
+  [Both]   Nazim reads this file and approves or edits it ............ 21 Nov
+  [Both]   Confirm project name, target user type, final MVP list ..... 22 Nov
+  [Zahid]  Make list of 5 possible users to talk to (store owners etc) . 22 Nov
+
+WEEK 1 - Decide and design (23 - 29 Nov)
+  [Both]   Talk to 3-5 potential users, write down what they say ...... 27 Nov
+  [Both]   Write MVP problem statement ................................ 25 Nov
+  [Nazim]  Draft backend architecture + API list ...................... 26 Nov
+  [Zahid]  Draft screen sketches (chat, upload, dashboard, handoff) ... 26 Nov
+  [Both]   Agree on API contract (what frontend sends/receives) ....... 28 Nov
+  [Zahid]  Create GitHub repo structure, main + dev branches, task board 24 Nov
+  [Both]   Write README.md and docs/PROJECT_PLAN.md ................... 29 Nov
+
+WEEK 2 - Build the foundation (30 Nov - 6 Dec)
+  [Nazim]  FastAPI project, database setup, env variables ............. 2 Dec
+  [Nazim]  First API endpoints (workspace, documents, chat) ........... 5 Dec
+  [Zahid]  React project setup, routing, basic layout ................. 2 Dec
+  [Zahid]  Login/signup screens and first usable screens .............. 5 Dec
+  [Both]   Basic tests + documentation, first pull requests merged .... 6 Dec
+
+WEEK 3 - Core feature (7 - 13 Dec)
+  [Nazim]  Document processing + embeddings + RAG answers ............. 11 Dec
+  [Nazim]  Answers show their source passage .......................... 12 Dec
+  [Zahid]  Knowledge-base upload and management screens ............... 10 Dec
+  [Zahid]  Customer chat screen (loading, error, empty states) ........ 12 Dec
+  [Both]   Test with sample business data (e.g. a pretend online store) 13 Dec
+
+WEEK 4 - Integrate (14 - 20 Dec)
+  [Both]   Connect frontend and backend ............................... 16 Dec
+  [Nazim]  Ticket categorization + priority suggestions ............... 17 Dec
+  [Nazim]  Human-handoff logic for uncertain/sensitive questions ...... 18 Dec
+  [Zahid]  Conversation history + handoff screen for human agent ...... 18 Dec
+  [Both]   Authentication and workspace separation ................... 19 Dec
+  [Both]   Test full user journeys, fix integration issues ............ 20 Dec
+
+WEEK 5 - Reliability (21 - 27 Dec)
+  [Both]   Test edge cases and failure cases .......................... 23 Dec
+  [Nazim]  Check AI answer quality, reduce wrong answers .............. 24 Dec
+  [Zahid]  Basic analytics dashboard .................................. 24 Dec
+  [Both]   Logging, error handling, privacy and security review ....... 26 Dec
+  [Both]   Fix high-priority bugs ..................................... 27 Dec
+
+WEEK 6 - Demo-ready MVP (28 Dec - 3 Jan 2027)
+  [Both]   Deploy the application ..................................... 30 Dec
+  [Both]   Setup + usage documentation ................................ 31 Dec
+  [Both]   Sample data, demo, short walkthrough video ................. 1 Jan
+  [Both]   Get feedback from the first real users ..................... 3 Jan
+  [Both]   Decide what to improve next ................................ 3 Jan
+
+(All dates are targets. We adjust them after Week 1 once we know the real
+amount of work.)
+
+--------------------------------------------------------------------------
+6. HOW WE WORK TOGETHER IN GIT AND GITHUB
+--------------------------------------------------------------------------
+Branches:
+  main                 - stable version, only tested work
+  dev                  - shared branch where our work meets
+  feature/<name>       - a feature being built
+  fix/<name>           - a bug fix
+  Examples: feature/nazim-rag-pipeline, feature/zahid-chat-ui, fix/document-upload
+
+Rules:
+  1. Never work directly on main.
+  2. Start every task from the latest dev.
+  3. Small commits with clear messages.
+  4. Push your feature branch to GitHub.
+  5. Open a Pull Request into dev.
+  6. The OTHER person reviews it.
+  7. Run tests before merging.
+  8. Merge only after review and passing checks.
+  9. Pull latest dev before starting the next task.
+ 10. NEVER commit .env files, API keys, passwords or private customer data.
+
+Daily routine:
+    git checkout dev
+    git pull origin dev
+    git checkout -b feature/your-feature-name
+    (work, then)
+    git add .
+    git commit -m "Short clear message"
+    git push -u origin feature/your-feature-name
+    -> open Pull Request on GitHub into dev
+
+Task board: use GitHub Projects with columns To Do / In Progress / In Review / Done.
+Every task in section 5 becomes one GitHub Issue assigned to its owner.
+
+--------------------------------------------------------------------------
+7. FIRST STEPS AFTER NAZIM APPROVES
+--------------------------------------------------------------------------
+  1. Nazim confirms this plan (or sends changes).
+  2. Record the selected idea and target users in README.md.
+  3. Create docs/PROJECT_PLAN.md from this file.
+  4. Agree on architecture and folder structure (backend/, frontend/, docs/).
+  5. Create and protect main and dev branches.
+  6. Create the first feature branches and GitHub Issues.
+  7. Start building, using pull requests.
+
+Our principle: build a small, reliable product that solves a real problem
+before adding advanced features.
+==========================================================================
